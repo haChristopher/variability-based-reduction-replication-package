@@ -13,7 +13,7 @@ def get_all_measurements(db_path: str) -> list[any]:
     return measurements
 
 
-def group_measurements_by_name(measurements: list[tuple], group_by_idx: int) -> dict[str, list[any]]:
+def group_measurements_by_property(measurements: list[tuple], group_by_idx: int) -> dict[str, list[any]]:
     grouped = {}
     for entry in measurements:
         bench_name = entry[group_by_idx]
