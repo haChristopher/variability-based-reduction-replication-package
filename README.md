@@ -46,3 +46,6 @@ pip install \
     --global-option="-L$(brew --prefix graphviz)/lib/" \
     pygraphviz
 ```
+
+# Replication Package
+All experiment configurations, measurement results and call graphs can be found in the [Replication Package](./replication-package/README.md)
