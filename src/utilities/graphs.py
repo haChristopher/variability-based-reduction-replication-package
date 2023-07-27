@@ -84,3 +84,44 @@ def generateUniqueNodeMapping(graphs: list[MultiDiGraph]) -> dict[str, str]:
                 nodecount += 1
 
     return nameMapping
+
+
+def recalculate_percentages_based_on_seconds(graph):
+    # extract seconds x.xxs using regex
+    REGEX_RUNTIME = re.compile(r"(\d+(\.\d+)?)[s| ]")
+
+    total_time = 0
+    for node in graph.nodes(data=True):
+        try:
+            seconds = REGEX_RUNTIME.findall(node[1]['label'])[0][0]
+            total_time += float(seconds)
+        except AttributeError:
+            print(f"There was an error extracting seconds from {node[1]['label']}")
+            continue
+
+    # recalculate percentages
+    for node in graph.nodes(data=True):
+        try:
+            seconds = REGEX_RUNTIME.findall(node[1]['label'])[0][0]
+        except AttributeError:
+            print(f"There was an error extracting seconds from {node[1]['label']}")
+            continue
+
+        # calculate percentage of total time
+        percentage = float(seconds) / total_time * 100
+        node[1]['totalPerc'] = percentage
+
+
+# check if first graph overlaps graph 2 sufficeintly
+def calculate_overlap_value(graph1, graph2):
+
+    # Calculate percentages based on total seconds of reduced graph
+    recalculate_percentages_based_on_seconds(graph1)
+    recalculate_percentages_based_on_seconds(graph2)
+
+    perc = 0
+    for node in graph2.nodes(data=True):
+        if node[0] in graph1.nodes():
+            # print(f"Found {node[1]['label']} with {node[1]['totalPerc']}")
+            perc += node[1]['totalPerc']
+    return perc / 100
