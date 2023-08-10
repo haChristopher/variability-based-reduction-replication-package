@@ -1,4 +1,4 @@
-# Master Thesis Relpication Package
+# Master Thesis Replication Package
 This is the replication package for the master thesis: "Reducing the Execution Time of Microbenchmark
 Suites based on Performance Variability of Individual"
 Benchmarks
