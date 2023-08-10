@@ -7,30 +7,13 @@ Benchmarks
 # Installation and needed tools
 Install graphviz: https://graphviz.org/download/
 
-
 https://github.com/jrfonseca/gprof2dot
 https://networkx.org/documentation/stable/install.html
 
-# Usefule commands
-
+Install python requirements
 ```
-go test ./…
-go test -v ./... -bench=. -run=xxx -benchmem
-go test ./... -bench=. -benchmem -memprofile memprofile.out -cpuprofile profile.out
+pip install -r requirements.txt
 ```
-
-Only run benchmark and not tests
-```
-go test -bench=. -run=^$ . -cpuprofile profile.out
-```
-
-Export to graph
-```
-dot > graph.dot
-```
-
-cannot use -cpuprofile flag with multiple packages
-
 
 # Dependencies
 
@@ -50,3 +33,29 @@ pip install \
 
 # Experiments
 All experiment configurations, measurement results and call graphs can be found in the [experiments directory](./experiments/README.md)
+
+
+
+# Analysis
+
+
+
+# Usefule commands 
+
+```
+go test ./…
+go test -v ./... -bench=. -run=xxx -benchmem
+go test ./... -bench=. -benchmem -memprofile memprofile.out -cpuprofile profile.out
+```
+
+Only run benchmark and not tests
+```
+go test -bench=. -run=^$ . -cpuprofile profile.out
+```
+
+Export to graph
+```
+dot > graph.dot
+```
+
+cannot use -cpuprofile flag with multiple packages
