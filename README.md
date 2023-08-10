@@ -1,6 +1,7 @@
-# masters-thesis
-Masters Thesis
-
+# Master Thesis Relpication Package
+This is the replication package for the master thesis: "Reducing the Execution Time of Microbenchmark
+Suites based on Performance Variability of Individual"
+Benchmarks
 
 
 # Installation and needed tools
@@ -47,5 +48,5 @@ pip install \
     pygraphviz
 ```
 
-# Replication Package
-All experiment configurations, measurement results and call graphs can be found in the [Replication Package](./replication-package/README.md)
+# Experiments
+All experiment configurations, measurement results and call graphs can be found in the [experiments directory](./experiments/README.md)
